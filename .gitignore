@@ -1,3 +1,6 @@
+# Personal script outputs
+prompt.txt
+
 # Dependencies
 node_modules/
 npm-debug.log*
