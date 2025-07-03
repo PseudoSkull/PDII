@@ -1,4 +1,4 @@
-# Vintage Queue v0.1.0
+# PDII (Public Domain Integration Infrastructure) v0.1.0
 
 A sophisticated 1920s Art Deco styled job queue management system built with React, FastAPI, PostgreSQL, Redis, and Celery.
 
@@ -32,7 +32,7 @@ Frontend (React + Vite)  ←→  Backend (FastAPI)  ←→  Database (PostgreSQL
 
 ```bash
 git clone <your-repo-url>
-cd vintage-queue
+cd pdii
 ```
 
 ### 2. Start Database Services
@@ -46,8 +46,8 @@ docker-compose up -d
 
 ```bash
 # Create backend directory and navigate
-mkdir vintage-queue-backend
-cd vintage-queue-backend
+mkdir backend
+cd backend
 
 # Create virtual environment
 python -m venv venv
@@ -68,7 +68,7 @@ uvicorn main:app --reload --host 0.0.0.0 --port 8000
 ### 4. Start Celery Worker (New Terminal)
 
 ```bash
-cd vintage-queue-backend
+cd backend
 source venv/bin/activate  # Activate virtual environment
 
 # Start Celery worker
@@ -79,8 +79,8 @@ celery -A celery_app worker --loglevel=info
 
 ```bash
 # Create React app with Vite
-npm create vite@latest vintage-queue-frontend -- --template react
-cd vintage-queue-frontend
+npm create vite@latest frontend -- --template react
+cd frontend
 
 # Install dependencies
 npm install
@@ -94,17 +94,17 @@ npm run dev
 ## 📁 Project Structure
 
 ```
-vintage-queue/
+pdii/
 ├── docker-compose.yml
 ├── requirements.txt
 ├── README.md
-├── vintage-queue-backend/
+├── backend/
 │   ├── main.py
 │   ├── database.py
 │   ├── models.py
 │   ├── celery_app.py
 │   └── test_main.py
-└── vintage-queue-frontend/
+└── frontend/
     ├── src/
     │   ├── App.jsx
     │   ├── main.jsx
@@ -128,7 +128,7 @@ vintage-queue/
 Create a `.env` file in the backend directory:
 
 ```env
-DATABASE_URL=postgresql://vintage_user:vintage_pass@localhost:5432/vintage_queue
+DATABASE_URL=postgresql://pdii_user:pdii_pass@localhost:5432/pdii
 REDIS_URL=redis://localhost:6379/0
 ```
 
@@ -137,9 +137,9 @@ REDIS_URL=redis://localhost:6379/0
 The application uses PostgreSQL with the following default settings:
 - **Host**: localhost
 - **Port**: 5432
-- **Database**: vintage_queue
-- **Username**: vintage_user
-- **Password**: vintage_pass
+- **Database**: pdii
+- **Username**: pdii_user
+- **Password**: pdii_pass
 
 ### Redis Configuration
 
@@ -152,7 +152,7 @@ The application uses PostgreSQL with the following default settings:
 ### Backend Tests
 
 ```bash
-cd vintage-queue-backend
+cd backend
 source venv/bin/activate
 
 # Run all tests
@@ -289,7 +289,7 @@ docker-compose down -v
 **Database connection issues:**
 - Check PostgreSQL container: `docker-compose logs postgres`
 - Verify database credentials in connection string
-- Ensure database exists: `docker-compose exec postgres psql -U vintage_user -d vintage_queue`
+- Ensure database exists: `docker-compose exec postgres psql -U pdii_user -d pdii`
 
 ### Debug Mode
 
@@ -334,4 +334,4 @@ For issues and questions:
 
 ---
 
-**Vintage Queue v0.1.0** - *Crafted with Art Deco Elegance* ✨
+**PDII (Public Domain Integration Infrastructure) v0.1.0** -✨
