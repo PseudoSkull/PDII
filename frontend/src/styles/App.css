@@ -927,247 +927,247 @@ body::before {
 }
 
 /* ================================================
-   TRANSCRIBE SECTION STYLES
-   ================================================ */
+  TRANSCRIBE SECTION STYLES
+  ================================================ */
 
-   .transcribe-content {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-  
-  /* Editor Controls */
+  .transcribe-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Editor Controls */
+.editor-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-lg);
+  padding: var(--spacing-md);
+  background: rgba(212, 175, 55, 0.1);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.btn-secondary {
+  background: linear-gradient(135deg, var(--black-soft) 0%, var(--black-primary) 100%);
+  color: var(--gold-primary);
+  border: 1px solid var(--gold-primary);
+  padding: var(--spacing-sm) var(--spacing-md);
+  font-family: var(--font-title);
+  font-size: 0.9rem;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  transition: all var(--transition-smooth);
+  margin-right: var(--spacing-sm);
+}
+
+.btn-secondary:hover {
+  background: linear-gradient(135deg, var(--gold-primary) 0%, var(--gold-dark) 100%);
+  color: var(--black-primary);
+  transform: translateY(-1px);
+}
+
+.editor-info {
+  font-family: var(--font-body);
+  color: var(--gold-light);
+}
+
+.text-counter {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+/* MediaWiki Editor Container */
+.mediawiki-editor-container {
+  margin-bottom: var(--spacing-xl);
+}
+
+.editor-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-sm);
+  font-family: var(--font-display);
+  color: var(--gold-primary);
+  font-weight: 600;
+}
+
+.editor-hint {
+  font-size: 0.9rem;
+  color: var(--gold-light);
+  font-weight: 300;
+  opacity: 0.8;
+}
+
+/* Editor Wrapper - Contains both textarea and overlay */
+.editor-wrapper {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  border: 2px solid rgba(212, 175, 55, 0.3);
+  background: var(--black-primary);
+  overflow: hidden;
+}
+
+/* Syntax Highlighting Overlay */
+.syntax-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: var(--spacing-md);
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  overflow: auto;
+  pointer-events: none;
+  z-index: 1;
+  box-sizing: border-box;
+  border: none;
+  outline: none;
+  resize: none;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* Actual Textarea */
+.editor-textarea {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: var(--spacing-md);
+  background: transparent;
+  color: transparent;
+  caret-color: var(--gold-primary);
+  border: none;
+  outline: none;
+  resize: none;
+  font-family: 'Courier New', 'Monaco', 'Menlo', monospace;
+  font-size: 14px;
+  line-height: 1.5;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  overflow: auto;
+  z-index: 2;
+  box-sizing: border-box;
+}
+
+.editor-textarea::selection {
+  background: rgba(212, 175, 55, 0.3);
+}
+
+.editor-textarea:focus {
+  outline: none;
+}
+
+/* Scrollbar styling for the editor */
+.editor-wrapper::-webkit-scrollbar,
+.syntax-overlay::-webkit-scrollbar,
+.editor-textarea::-webkit-scrollbar {
+  width: 12px;
+}
+
+.editor-wrapper::-webkit-scrollbar-track,
+.syntax-overlay::-webkit-scrollbar-track,
+.editor-textarea::-webkit-scrollbar-track {
+  background: var(--black-soft);
+}
+
+.editor-wrapper::-webkit-scrollbar-thumb,
+.syntax-overlay::-webkit-scrollbar-thumb,
+.editor-textarea::-webkit-scrollbar-thumb {
+  background: var(--gold-primary);
+  border-radius: 6px;
+}
+
+.editor-wrapper::-webkit-scrollbar-thumb:hover,
+.syntax-overlay::-webkit-scrollbar-thumb:hover,
+.editor-textarea::-webkit-scrollbar-thumb:hover {
+  background: var(--gold-dark);
+}
+
+/* Syntax Reference */
+.syntax-reference {
+  background: rgba(212, 175, 55, 0.05);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  padding: var(--spacing-lg);
+  margin-top: var(--spacing-lg);
+}
+
+.syntax-reference h4 {
+  font-family: var(--font-title);
+  color: var(--gold-primary);
+  margin-bottom: var(--spacing-md);
+  font-size: 1.2rem;
+  letter-spacing: 0.1em;
+}
+
+.reference-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--spacing-md);
+}
+
+.reference-item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.reference-item code {
+  background: var(--black-soft);
+  color: var(--gold-light);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: 3px;
+  font-family: 'Courier New', monospace;
+  font-size: 0.9rem;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.reference-item span {
+  font-size: 0.9rem;
+  color: var(--cream);
+  opacity: 0.8;
+}
+
+/* Animation for editor focus */
+.editor-wrapper:focus-within {
+  border-color: var(--gold-primary);
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+  transition: all var(--transition-smooth);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
   .editor-controls {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: var(--spacing-lg);
-    padding: var(--spacing-md);
-    background: rgba(212, 175, 55, 0.1);
-    border: 1px solid rgba(212, 175, 55, 0.3);
-  }
-  
-  .btn-secondary {
-    background: linear-gradient(135deg, var(--black-soft) 0%, var(--black-primary) 100%);
-    color: var(--gold-primary);
-    border: 1px solid var(--gold-primary);
-    padding: var(--spacing-sm) var(--spacing-md);
-    font-family: var(--font-title);
-    font-size: 0.9rem;
-    letter-spacing: 0.1em;
-    cursor: pointer;
-    transition: all var(--transition-smooth);
-    margin-right: var(--spacing-sm);
-  }
-  
-  .btn-secondary:hover {
-    background: linear-gradient(135deg, var(--gold-primary) 0%, var(--gold-dark) 100%);
-    color: var(--black-primary);
-    transform: translateY(-1px);
-  }
-  
-  .editor-info {
-    font-family: var(--font-body);
-    color: var(--gold-light);
-  }
-  
-  .text-counter {
-    font-size: 0.9rem;
-    opacity: 0.8;
-  }
-  
-  /* MediaWiki Editor Container */
-  .mediawiki-editor-container {
-    margin-bottom: var(--spacing-xl);
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    align-items: stretch;
   }
   
   .editor-label {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: var(--spacing-sm);
-    font-family: var(--font-display);
-    color: var(--gold-primary);
-    font-weight: 600;
-  }
-  
-  .editor-hint {
-    font-size: 0.9rem;
-    color: var(--gold-light);
-    font-weight: 300;
-    opacity: 0.8;
-  }
-  
-  /* Editor Wrapper - Contains both textarea and overlay */
-  .editor-wrapper {
-    position: relative;
-    width: 100%;
-    height: 500px;
-    border: 2px solid rgba(212, 175, 55, 0.3);
-    background: var(--black-primary);
-    overflow: hidden;
-  }
-  
-  /* Syntax Highlighting Overlay */
-  .syntax-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    padding: var(--spacing-md);
-    white-space: pre-wrap;
-    word-wrap: break-word;
-    overflow: auto;
-    pointer-events: none;
-    z-index: 1;
-    box-sizing: border-box;
-    border: none;
-    outline: none;
-    resize: none;
-    font-size: 14px;
-    line-height: 1.5;
-  }
-  
-  /* Actual Textarea */
-  .editor-textarea {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    padding: var(--spacing-md);
-    background: transparent;
-    color: transparent;
-    caret-color: var(--gold-primary);
-    border: none;
-    outline: none;
-    resize: none;
-    font-family: 'Courier New', 'Monaco', 'Menlo', monospace;
-    font-size: 14px;
-    line-height: 1.5;
-    white-space: pre-wrap;
-    word-wrap: break-word;
-    overflow: auto;
-    z-index: 2;
-    box-sizing: border-box;
-  }
-  
-  .editor-textarea::selection {
-    background: rgba(212, 175, 55, 0.3);
-  }
-  
-  .editor-textarea:focus {
-    outline: none;
-  }
-  
-  /* Scrollbar styling for the editor */
-  .editor-wrapper::-webkit-scrollbar,
-  .syntax-overlay::-webkit-scrollbar,
-  .editor-textarea::-webkit-scrollbar {
-    width: 12px;
-  }
-  
-  .editor-wrapper::-webkit-scrollbar-track,
-  .syntax-overlay::-webkit-scrollbar-track,
-  .editor-textarea::-webkit-scrollbar-track {
-    background: var(--black-soft);
-  }
-  
-  .editor-wrapper::-webkit-scrollbar-thumb,
-  .syntax-overlay::-webkit-scrollbar-thumb,
-  .editor-textarea::-webkit-scrollbar-thumb {
-    background: var(--gold-primary);
-    border-radius: 6px;
-  }
-  
-  .editor-wrapper::-webkit-scrollbar-thumb:hover,
-  .syntax-overlay::-webkit-scrollbar-thumb:hover,
-  .editor-textarea::-webkit-scrollbar-thumb:hover {
-    background: var(--gold-dark);
-  }
-  
-  /* Syntax Reference */
-  .syntax-reference {
-    background: rgba(212, 175, 55, 0.05);
-    border: 1px solid rgba(212, 175, 55, 0.2);
-    padding: var(--spacing-lg);
-    margin-top: var(--spacing-lg);
-  }
-  
-  .syntax-reference h4 {
-    font-family: var(--font-title);
-    color: var(--gold-primary);
-    margin-bottom: var(--spacing-md);
-    font-size: 1.2rem;
-    letter-spacing: 0.1em;
-  }
-  
-  .reference-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: var(--spacing-md);
-  }
-  
-  .reference-item {
-    display: flex;
     flex-direction: column;
+    align-items: flex-start;
     gap: var(--spacing-xs);
   }
   
-  .reference-item code {
-    background: var(--black-soft);
-    color: var(--gold-light);
-    padding: var(--spacing-xs) var(--spacing-sm);
-    border-radius: 3px;
-    font-family: 'Courier New', monospace;
-    font-size: 0.9rem;
-    border: 1px solid rgba(212, 175, 55, 0.3);
+  .editor-wrapper {
+    height: 400px;
   }
   
-  .reference-item span {
-    font-size: 0.9rem;
-    color: var(--cream);
-    opacity: 0.8;
+  .reference-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .editor-wrapper {
+    height: 300px;
   }
   
-  /* Animation for editor focus */
-  .editor-wrapper:focus-within {
-    border-color: var(--gold-primary);
-    box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
-    transition: all var(--transition-smooth);
+  .syntax-overlay,
+  .editor-textarea {
+    font-size: 12px;
+    padding: var(--spacing-sm);
   }
-  
-  /* Responsive adjustments */
-  @media (max-width: 768px) {
-    .editor-controls {
-      flex-direction: column;
-      gap: var(--spacing-sm);
-      align-items: stretch;
-    }
-    
-    .editor-label {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: var(--spacing-xs);
-    }
-    
-    .editor-wrapper {
-      height: 400px;
-    }
-    
-    .reference-grid {
-      grid-template-columns: 1fr;
-    }
-  }
-  
-  @media (max-width: 480px) {
-    .editor-wrapper {
-      height: 300px;
-    }
-    
-    .syntax-overlay,
-    .editor-textarea {
-      font-size: 12px;
-      padding: var(--spacing-sm);
-    }
-  }
+}
