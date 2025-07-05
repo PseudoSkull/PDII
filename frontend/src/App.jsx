@@ -50,7 +50,7 @@ function App() {
         <footer className="app-footer">
           <div className="footer-content">
             <div className="footer-ornament"></div>
-            <p className="footer-text">PDII (Public Domain Integration Infrastructure) v0.1.0 • Crafted with Art Deco Elegance</p>
+            <p className="footer-text">PDII (Public Domain Integration Infrastructure) v0.1.0</p>
             <div className="footer-ornament"></div>
           </div>
         </footer>
