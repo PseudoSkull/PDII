@@ -1,5 +1,4 @@
 """
-Vintage Queue Backend - Art Deco styled job queue system
 FastAPI application with PostgreSQL, Redis, and Celery integration
 """
 
